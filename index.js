@@ -1,8 +1,8 @@
 var objData , origData;
 const CoronaData = async() => {
-   const jsonData = await fetch("https://disease.sh/v3/covid-19/all");
-    objData = await jsonData.json();
-    origData = [objData]
+   const jsonData = await fetch("https://corona.lmao.ninja/v2/all"); // Updated API endpoint
+     objData = await jsonData.json();
+     origData = [objData];
     //console.log(origData);
     var countryname = document.getElementsByClassName("countryname");
     countryname[0].innerHTML = "Global";
@@ -28,7 +28,7 @@ const countryInput = document.getElementById("countryinput").value.toLowerCase()
             return;
     }
 try {
-        const response = await fetch(`https://disease.sh/v3/covid-19/countries/${countryInput}`);
+        const response = await fetch(`https://corona.lmao.ninja/v2/countries/${countryInput}`);
         const data = await response.json();
         if (data.message === "Country not found or doesn't have any cases") {
         alert("Country not found or no data available.");
